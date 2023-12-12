@@ -116,3 +116,18 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+
+// Pseudocode 
+// 1.Generate a password when the button is clicked
+// 2.Present a series of prompts for password criteria
+// 3.Length of password
+// At least 8 characters but no more than 128.
+// 4. Character types
+// Lowercase
+// Uppercase
+// Numeric
+// Special characters ($@%&*, etc)
+// 5.Code should validate for each input and at least one character type should be selected
+// 6.Once prompts are answered then the password should be generated and displayed in an alert or written to the page
+
+// Prompts - Welcome/ Length/character types/ prompt to click button when ready
