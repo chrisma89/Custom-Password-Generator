@@ -93,7 +93,26 @@ var upperCasedCharacters = [
 
 
 function getPasswordOptions() {
+
+let userinputlength;
+
+userinputlength = prompt("Please choose a number between 8 and 128 and type it in the box below");
+
+while(true){
+let length =parseInt(userinputlength)
+ 
+  if (isNaN(length) || length < 8 || length >128){
+ userinputlength = prompt("Invalid input. Please choose again")}
+      else {
+        prompt(`You have chosen ${length} as the length of your password`)
+        return length
+      }
 }
+}
+
+
+
+getPasswordOptions()
 // Function for getting a random element from an array
 function getRandom(arr) {
 
