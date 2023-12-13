@@ -89,10 +89,11 @@ var upperCasedCharacters = [
 ];
 
 // Function to prompt user for password options
+
+
+
 function getPasswordOptions() {
-
 }
-
 // Function for getting a random element from an array
 function getRandom(arr) {
 
@@ -131,3 +132,5 @@ generateBtn.addEventListener('click', writePassword);
 // 6.Once prompts are answered then the password should be generated and displayed in an alert or written to the page
 
 // Prompts - Welcome/ Length/character types/ prompt to click button when ready
+
+
