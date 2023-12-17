@@ -70,7 +70,17 @@ var upperCasedCharacters = ['A','B','C','D','E','F','G','H','I','J','K','L','M',
 
 // Function to prompt user for password options
 // Function for getting a random element from an array
-function getRandom(arr) {
+function getRandom() {
+
+  let passwordArray = [];
+  
+  for (let i = 0; i < passwordlength; i++){
+       let  passwordArrayrandom =megaArray[Math.floor(Math.random()*megaArray.length)]
+   
+ passwordArray.push(passwordArrayrandom)
+  console.log(passwordArray)
+  }
+
   
 }
 
@@ -81,14 +91,14 @@ function generatePassword() {
       userinputlength = prompt("Please choose a number between 8 and 128 and type it in the box below");
     
     while(true){
-    let length =parseInt(userinputlength)
+    let passwordlength =parseInt(userinputlength)
      
-      if (isNaN(length) || length < 8 || length > 128) {
+      if (isNaN(length) || passwordlength < 8 || passwordlength > 128) {
      userinputlength = prompt("Invalid input. Please choose again")}
           else {
-            alert(`You have chosen ${length} as the length of your password`)
+            alert(`You have chosen ${passwordlength} as the length of your password`)
              getPasswordOptions() 
-            return length
+            return passwordlength
           }
         }
       }
@@ -106,14 +116,19 @@ function generatePassword() {
                   const index = [Math.floor(Math.random()*array.length)]
                   chosenArray.push(array[index]);
                   console.log(chosenArray);
-                  megaArray.concat(array)
+                  //megaArray.push([...megaArray, ...array]);
+                  megaArray = megaArray.concat(array);
                   console.log(megaArray)
-                  }
-                  else if ((chosenArrayoption).toLowerCase() === "no") {
-                    alert("Please choose yes to atleast one character")
-                  }
-        } 
-      }
+                  
+        }
+      } 
+        if (megaArray.length === 0){
+          getPasswordOptions()
+        }
+     }
+      getRandom(megaArray, passwordlength)
+      
+    
         // getPasswordOptions();
       
        
@@ -141,10 +156,6 @@ function writePassword() {
     
     }
 
-   
+
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
-
-
-
-
