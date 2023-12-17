@@ -21,7 +21,7 @@ let passwordArray = [];
 let chosenArray =[];
 
 function getRandom(megaArray, passwordlength) {
-    for (let i = 0; i < passwordlength; i++){
+    for (let i = 0; i < passwordlength - chosenArray.length; i++){
        let  passwordArrayrandom = megaArray[Math.floor(Math.random()*megaArray.length)]
             password =passwordArray.push(passwordArrayrandom)
        }
