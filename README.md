@@ -37,13 +37,14 @@ This repository has been built using
 
 ### Installation
 
-This webpage can be rendered by visiting the url : 
-The code can be viewed at github: 
+This webpage can be rendered by visiting the url : https://chrisma89.github.io/Chrisma-Password-Generator/
+The code can be viewed at github: https://github.com/chrisma89/Chrisma-Password-Generator
 ### Usage
 
 The webpage could be used to generate a random password using criterias such as password length and character type choice. The github repository can be used to see the codes written for the generation of the password. 
 
-The screenshot of the webpage is below : ![webpagescreenshot](/)
+The screenshot of the webpage is below : ![webpagescreenshot](/webpagescreenshot.png)
+The screenshot with the password generated is : ![webpagescreenshot](/webpagescreenshotwithpassword.png)
 
 ### Credits
 
