@@ -79,9 +79,11 @@ function getRandom(megaArray, passwordlength) {
        let  passwordArrayrandom = megaArray[Math.floor(Math.random()*megaArray.length)]
    
  password =passwordArray.push(passwordArrayrandom)
+//  generatedPassword = chosenArray.concat(password) 
   
   }
 return passwordArray.join('')
+
   
 }
 
@@ -100,7 +102,8 @@ function generatePassword() {
             alert(`You have chosen ${passwordlength} as the length of your password`)
              let megaArray = getPasswordOptions() 
              if (megaArray.length > 0){
-            password = getRandom(megaArray, passwordlength)
+                chosenArray= chosenArray.join('')
+            password = getRandom(megaArray, passwordlength).concat(chosenArray)
           // console.log("ding")
             return password
           }
@@ -108,11 +111,12 @@ function generatePassword() {
           }
         }
       }
+      let chosenArray =[];
       
         // Function to prompt user for password options
         function getPasswordOptions() {
           const parentArray = {numericCharacters, specialCharacters, upperCasedCharacters, lowerCasedCharacters};
-          let chosenArray =[];
+          // let chosenArray =[];
           let megaArray =[];
             for (let key in parentArray ) {
       
@@ -121,6 +125,8 @@ function generatePassword() {
                   let array = parentArray[key];
                   const index = [Math.floor(Math.random()*array.length)]
                   chosenArray.push(array[index]);
+                  
+                 
                   console.log(chosenArray);
                   //megaArray.push([...megaArray, ...array]);
                   megaArray = megaArray.concat(array);
