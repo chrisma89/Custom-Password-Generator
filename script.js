@@ -21,18 +21,20 @@ let passwordArray = [];
 let chosenArray =[];
 
 function getRandom(megaArray, passwordlength) {
-    for (let i = 0; i < passwordlength - chosenArray.length; i++){
+     let password = '';
+     let chosenlength = passwordlength -chosenArray.length;
+    for (let i = 0; i < chosenlength; i++){
        let  passwordArrayrandom = megaArray[Math.floor(Math.random()*megaArray.length)]
             password =passwordArray.push(passwordArrayrandom)
        }
       return passwordArray.join('')
 }
 
-
-function generatePassword() {
-      let userinputlength;
-      userinputlength = prompt("Please choose a number between 8 to 128 and type it in the box below for the desired length of your password");
-      while(true){
+         // Function to generate and print password 
+      function generatePassword() {
+          let userinputlength;
+          userinputlength = prompt("Please choose a number between 8 to 128 and type it in the box below for the desired length of your password");
+          while(true){
 
          if (userinputlength === null) {
           alert("Password generation cancelled")
@@ -59,11 +61,18 @@ function generatePassword() {
         // Function to prompt user for password options
         function getPasswordOptions() {
           const parentArray = {numericCharacters, specialCharacters, upperCasedCharacters, lowerCasedCharacters};
-          // let chosenArray =[];
+       
           let megaArray =[];
             for (let key in parentArray ) {
       
             let chosenArrayoption = prompt(`Would you like ${key} in your password? Please type in 'yes' or 'no' in the box below`)
+            if (chosenArrayoption === null) {
+              return null
+            }
+            if (chosenArrayoption !== "yes" && chosenArrayoption !== "no") {
+              alert("Please type in yes or no for each option")
+            }
+    
               if ((chosenArrayoption).toLowerCase().trim() === "yes" ) {
                   let array = parentArray[key];
                   const index = [Math.floor(Math.random()*array.length)]
@@ -72,6 +81,7 @@ function generatePassword() {
                   megaArray = megaArray.concat(array);
                   console.log(megaArray)
               }
+             
           } 
               if (megaArray.length === 0){
                   alert("Please choose one character type to generate your password.Click OK to continue")
