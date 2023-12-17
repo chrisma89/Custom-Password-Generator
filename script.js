@@ -70,17 +70,18 @@ var upperCasedCharacters = ['A','B','C','D','E','F','G','H','I','J','K','L','M',
 
 // Function to prompt user for password options
 // Function for getting a random element from an array
-function getRandom() {
+let passwordArray = [];
+function getRandom(megaArray, passwordlength) {
 
-  let passwordArray = [];
+  // let passwordArray = [];
   
   for (let i = 0; i < passwordlength; i++){
-       let  passwordArrayrandom =megaArray[Math.floor(Math.random()*megaArray.length)]
+       let  passwordArrayrandom = megaArray[Math.floor(Math.random()*megaArray.length)]
    
- passwordArray.push(passwordArrayrandom)
-  console.log(passwordArray)
+ password =passwordArray.push(passwordArrayrandom)
+  
   }
-
+return passwordArray.join('')
   
 }
 
@@ -93,12 +94,17 @@ function generatePassword() {
     while(true){
     let passwordlength =parseInt(userinputlength)
      
-      if (isNaN(length) || passwordlength < 8 || passwordlength > 128) {
-     userinputlength = prompt("Invalid input. Please choose again")}
+      if (isNaN(passwordlength) || passwordlength < 8 || passwordlength > 128) {
+     userinputlength = prompt("Invalid input. Please type in a number starting from 8 to 128 to generate your password")}
           else {
             alert(`You have chosen ${passwordlength} as the length of your password`)
-             getPasswordOptions() 
-            return passwordlength
+             let megaArray = getPasswordOptions() 
+             if (megaArray.length > 0){
+            password = getRandom(megaArray, passwordlength)
+          // console.log("ding")
+            return password
+          }
+          
           }
         }
       }
@@ -123,13 +129,12 @@ function generatePassword() {
         }
       } 
         if (megaArray.length === 0){
+          alert("Please choose one character type to generate your password.Click OK to continue")
           getPasswordOptions()
         }
+        return megaArray;
      }
-      getRandom(megaArray, passwordlength)
-      
     
-        // getPasswordOptions();
       
        
         // Confirm which character sets to use
