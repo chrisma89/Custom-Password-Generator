@@ -31,19 +31,24 @@ function getRandom(megaArray, passwordlength) {
 
 function generatePassword() {
       let userinputlength;
-      userinputlength = prompt("Please choose a number between 8 and 128 and type it in the box below");
+      userinputlength = prompt("Please choose a number between 8 to 128 and type it in the box below for the desired length of your password");
       while(true){
+
+         if (userinputlength === null) {
+          alert("Password generation cancelled")
+          return null;
+         }
             let passwordlength =parseInt(userinputlength)
          if (isNaN(passwordlength) || passwordlength < 8 || passwordlength > 128) {
               userinputlength = prompt("Invalid input. Please type in a number starting from 8 to 128 to generate your password")
             }
+            
          else {
             alert(`You have chosen ${passwordlength} as the length of your password`)
              let megaArray = getPasswordOptions() 
-             if (megaArray.length > 0){
+             if (megaArray.length > 0) {
                 chosenArray= chosenArray.join('')
             password = getRandom(megaArray, passwordlength).concat(chosenArray)
-          // console.log("ding")
             return password
           }
           }
