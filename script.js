@@ -69,11 +69,6 @@ var lowerCasedCharacters = ['a','b','c','d','e','f','g','h','i','j','k','l','m',
 var upperCasedCharacters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U', 'V', 'W', 'X', 'Y', 'Z'];
 
 // Function to prompt user for password options
-
-
-generatePassword()
-
-
 // Function for getting a random element from an array
 function getRandom(arr) {
   
@@ -92,37 +87,34 @@ function generatePassword() {
      userinputlength = prompt("Invalid input. Please choose again")}
           else {
             alert(`You have chosen ${length} as the length of your password`)
+             getPasswordOptions() 
             return length
           }
         }
       }
-      // getPasswordOptions()
       
         // Function to prompt user for password options
         function getPasswordOptions() {
-              console.log("inside.passwordoptions")
           const parentArray = {numericCharacters, specialCharacters, upperCasedCharacters, lowerCasedCharacters};
           let chosenArray =[];
-
-
-          for (let key in parentArray ) {
+          let megaArray =[];
+            for (let key in parentArray ) {
       
             let chosenArrayoption = prompt(`Would you like ${key} in your password? Please type in 'yes' or 'no' in the box below`)
-              if ((chosenArrayoption).toLowerCase() === "yes" ) {
-              
-                  let randomCharacter = parentArray[key][Math.floor(Math.random()*parentArray[key].length)]
-                  chosenArray.push(randomCharacter);
-                  console.log(chosenArray)
+              if ((chosenArrayoption).toLowerCase().trim() === "yes" ) {
+                  let array = parentArray[key];
+                  const index = [Math.floor(Math.random()*array.length)]
+                  chosenArray.push(array[index]);
+                  console.log(chosenArray);
+                  megaArray.concat(array)
+                  console.log(megaArray)
                   }
-                  // else if ((chosenArrayoption).toLowerCase() === "no") {
-                  //   alert("Ok , Thank you")
-                  // }
-                  else {
-                    prompt("Please choose atleast one character type")
+                  else if ((chosenArrayoption).toLowerCase() === "no") {
+                    alert("Please choose yes to atleast one character")
                   }
-          } 
         } 
-        getPasswordOptions();
+      }
+        // getPasswordOptions();
       
        
         // Confirm which character sets to use
@@ -134,20 +126,6 @@ function generatePassword() {
           // OR you can keep the arrays separate and generate a random number to select the array and another to select the index
           
           // Once character sets are selected, move on to generating random characters
-
-  
-   
-//         const userChoicetypechosen = prompt("Would you like numbers in your password? Please type in 'yes' or 'no")
-
-//         if (userChoicetypechosen === "yes") {
-//     alert (`You have chosen numbers in your password`)
-//           }
-//   else if (userChoicetypechosen === "no" ){
-//     prompt("Would you like special characters in your password?")
-//   }
-//   return;
-// }
-
 
 
 // Get references to the #generate element
@@ -161,40 +139,12 @@ function writePassword() {
 
   passwordText.value = password;
     
-  
-
-    
-// // Function to generate password with user input
-// function generatePassword() {
-//   let userChoicetypechosen = prompt("The options are 1. Numbers  2. Special Characters 3. Capital alphabet letters 4. Small alphabet letters. Please enter an option of 1 to 4 in the box below")
-
-//   if (userChoicetypechosen === "1" || userChoicetypechosen === "2" || userChoicetypechosen === "3" || userChoicetypechosen === "4") {
-//     alert (`You have chosen ${userChoicetypechosen} as your choice of character type`)
-//   }
-//   else {
-//     prompt("Input Invalid. Please choose again")
-//   }
-//   return;
-// }
     }
 
    
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
 
-// Pseudocode 
-// 1.Generate a password when the button is clicked
-// 2.Present a series of prompts for password criteria
-// 3.Length of password
-// At least 8 characters but no more than 128.
-// 4. Character types
-// Lowercase
-// Uppercase
-// Numeric
-// Special characters ($@%&*, etc)
-// 5.Code should validate for each input and at least one character type should be selected
-// 6.Once prompts are answered then the password should be generated and displayed in an alert or written to the page
 
-// Prompts - Welcome/ Length/character types/ prompt to click button when ready
 
 
