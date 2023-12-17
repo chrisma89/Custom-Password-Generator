@@ -33,7 +33,7 @@ function getRandom(megaArray, passwordlength) {
          // Function to generate and print password 
       function generatePassword() {
           let userinputlength;
-          userinputlength = prompt("Please choose a number between 8 to 128 and type it in the box below for the desired length of your password");
+          userinputlength = prompt("Please imput a number between 8 to 128 for your desired password length");
           while(true){
 
          if (userinputlength === null) {
@@ -42,11 +42,11 @@ function getRandom(megaArray, passwordlength) {
          }
             let passwordlength =parseInt(userinputlength)
          if (isNaN(passwordlength) || passwordlength < 8 || passwordlength > 128) {
-              userinputlength = prompt("Invalid input. Please type in a number starting from 8 to 128 to generate your password")
+              userinputlength = prompt("Invalid input. Please type in a number starting from 8 to 128")
             }
             
          else {
-            alert(`You have chosen ${passwordlength} as the length of your password`)
+            alert(`You have chosen ${passwordlength} characters for your password`)
              let megaArray = getPasswordOptions() 
              if (megaArray.length > 0) {
                 chosenArray= chosenArray.join('')
@@ -65,7 +65,7 @@ function getRandom(megaArray, passwordlength) {
           let megaArray =[];
             for (let key in parentArray ) {
       
-            let chosenArrayoption = prompt(`Would you like ${key} in your password? Please type in 'yes' or 'no' in the box below`)
+            let chosenArrayoption = prompt(`Would you like ${key} in your password? Please type in 'yes' or 'no' in the box below.`)
             if (chosenArrayoption === null) {
               return null
             }
@@ -84,7 +84,7 @@ function getRandom(megaArray, passwordlength) {
              
           } 
               if (megaArray.length === 0){
-                  alert("Please choose one character type to generate your password.Click OK to continue")
+                  alert("Please choose one character type to generate your password. Click OK to continue")
                   getPasswordOptions()
                  }
                 return megaArray;
