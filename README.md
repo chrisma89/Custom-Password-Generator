@@ -51,7 +51,9 @@ The screenshot with the password generated is : ![webpagescreenshot](/webpagescr
 The starter code was provided by the bootcampspot through edx and skills for life. 
 The readme file was written with some inspiration from https://github.com/othneildrew/Best-README-Template/blob/master/README.md
 Many thanks to Laura cole, my Instructor for the pseudocode.
-Many thavnks to our TA, Priyanka Christine, for her guidance in helping me get started with the project.
+Many thanks to our TA, Priyanka Christine, for her guidance in helping me get started with the project.
+Many thanks to tutor, Mr Jaytee Padilla, for helping me get the logic right and debugging the code.
+
 
 
 ### Licence

@@ -18,9 +18,10 @@ var upperCasedCharacters = ['A','B','C','D','E','F','G','H','I','J','K','L','M',
 
 const generatedPassword = '';
 let passwordArray = [];
-let chosenArray =[];
 
-function getRandom(megaArray, passwordlength) {
+
+function getRandom(megaArray, passwordlength, chosenArray) {
+     passwordArray = [];
      let password = '';
      let chosenlength = passwordlength -chosenArray.length;
     for (let i = 0; i < chosenlength; i++){
@@ -32,8 +33,9 @@ function getRandom(megaArray, passwordlength) {
 
          // Function to generate and print password 
       function generatePassword() {
+        let chosenArray =[];
           let userinputlength;
-          userinputlength = prompt("Please imput a number between 8 to 128 for your desired password length");
+          userinputlength = prompt("Please input a number between 8 to 128 for your desired password length");
           while(true){
 
          if (userinputlength === null) {
@@ -47,10 +49,10 @@ function getRandom(megaArray, passwordlength) {
             
          else {
             alert(`You have chosen ${passwordlength} characters for your password`)
-             let megaArray = getPasswordOptions() 
+             let megaArray = getPasswordOptions(chosenArray) 
              if (megaArray.length > 0) {
                 chosenArray= chosenArray.join('')
-            password = getRandom(megaArray, passwordlength).concat(chosenArray)
+            password = getRandom(megaArray, passwordlength, chosenArray).concat(chosenArray)
             return password
           }
           }
@@ -59,7 +61,7 @@ function getRandom(megaArray, passwordlength) {
         
       
         // Function to prompt user for password options
-        function getPasswordOptions() {
+        function getPasswordOptions(chosenArray) {
           const parentArray = {numericCharacters, specialCharacters, upperCasedCharacters, lowerCasedCharacters};
        
           let megaArray =[];
@@ -69,9 +71,10 @@ function getRandom(megaArray, passwordlength) {
             if (chosenArrayoption === null) {
               return null
             }
-            if (chosenArrayoption !== "yes" && chosenArrayoption !== "no") {
-              alert("Please type in yes or no for each option")
-            }
+            while (chosenArrayoption !== "yes" && chosenArrayoption !== "no") {
+              // alert("Please type in yes or no for each option")
+               chosenArrayoption = prompt(`Would you like ${key} in your password? Please type in 'yes' or 'no' in the box below.`)
+               } 
     
               if ((chosenArrayoption).toLowerCase().trim() === "yes" ) {
                   let array = parentArray[key];
@@ -80,6 +83,9 @@ function getRandom(megaArray, passwordlength) {
                   console.log(chosenArray);
                   megaArray = megaArray.concat(array);
                   console.log(megaArray)
+              }
+              if (chosenArrayoption === null){
+                return;
               }
              
           } 
@@ -98,7 +104,8 @@ var generateBtn = document.querySelector('#generate');
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
-
+  console.log(password)
+  passwordText.value ="";
   passwordText.value = password;
     
     }
@@ -106,3 +113,10 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+
+
+
+
+
+// GRADER COMMENTS _
+// but if you repeat password generation without refreshing the browser, the logic gets broken. 
