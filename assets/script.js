@@ -13,7 +13,6 @@ var lowerCasedCharacters = ['a','b','c','d','e','f','g','h','i','j','k','l','m',
 // Array of uppercase characters to be included in password
 var upperCasedCharacters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U', 'V', 'W', 'X', 'Y', 'Z'];
 
-// Function to prompt user for password options
 // Function for getting a random element from an array
 
 const generatedPassword = '';
@@ -23,7 +22,7 @@ let passwordArray = [];
 function getRandom(megaArray, passwordlength, chosenArray) {
      passwordArray = [];
      let password = '';
-     let chosenlength = passwordlength -chosenArray.length;
+     let chosenlength = passwordlength - chosenArray.length;
     for (let i = 0; i < chosenlength; i++){
        let  passwordArrayrandom = megaArray[Math.floor(Math.random()*megaArray.length)]
             password =passwordArray.push(passwordArrayrandom)
@@ -120,3 +119,6 @@ generateBtn.addEventListener('click', writePassword);
 
 // GRADER COMMENTS _
 // but if you repeat password generation without refreshing the browser, the logic gets broken. 
+
+
+// When I enter a valid password length and input a value of "no" for the remaining 4 options, a validation message is displayed indicating that at least one option must be chosen. Excellent! However, in the next prompt message that requests the user to opt for "numeric" characters, when I enter "yes", an error is displayed in the Chrome Developer Tools console "TypeError: Cannot read properties of undefined (reading 'push') at getPasswordOptions (script.js:82:31)..at getPasswordOptions (script.js:94:19)..at generatePassword (script.js:52:30)". In the file "assets/script.js", check the logic in the function "getPasswordOptions" (line #94)
