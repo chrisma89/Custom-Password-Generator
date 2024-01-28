@@ -18,7 +18,6 @@ function getPasswordOptions() {
   let megaArray = [];
   let essentialArray =[];
   let passwordLength = parseInt(prompt("Please enter a number between 8 and 128 for your password's length"))
-  console.log(passwordLength)
      if (passwordLength >= 8 && passwordLength <= 128){
     alert("you have chosen " + passwordLength + " as your password length")
      }
@@ -74,7 +73,7 @@ let hasNumbers = confirm("Would you like numbers? if yes, click ok")
     alert("please choose atleast one character type")
     getPasswordOptions();
   }
-getRandom(megaArray,essentialArray,passwordLength)
+return getRandom(megaArray,essentialArray,passwordLength)
 }
 
 // Function for getting a random element from an array
@@ -95,11 +94,15 @@ function getRandom(megaArray,essentialArray,passwordLength) {
   passwordArray.push(...essentialArray)
   passwordArray1 = passwordArray.join("")
   console.log(passwordArray1)
+  let password = passwordArray1
+  return password
 }
 
 // Function to generate password with user input
-function generatePassword() {
-  getPasswordOptions()
+function generatePassword(passwordArray1) {
+ return  getPasswordOptions()
+ 
+  
 
 }
 
