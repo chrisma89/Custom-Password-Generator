@@ -35,37 +35,65 @@ let hasuppercase = confirm("Would you like upper case letters? if yes, click ok"
 let hasspecialCharacters = confirm("Would you like special charaxters? if yes, click ok")
 let hasNumbers = confirm("Would you like numbers? if yes, click ok")
   if (hasLowercase){
-    megaArray.push(lowerCasedCharacters);
-    essentialArray = Math.floor(Math.random() * 1)
-    console.log(essentialArray)
+   
+     megaArray.push(...lowerCasedCharacters);
+    randomElement = lowerCasedCharacters[Math.floor(Math.random() * 25)]
+    essentialArray.push(randomElement)
+    console.log(randomElement)
   }
   
   if (hasuppercase){
-    megaArray.push(upperCasedCharacters);
-    // return megaArray
+   
+     megaArray.push(...upperCasedCharacters);
+    console.log(megaArray)
+    randomElement = upperCasedCharacters[Math.floor(Math.random() * 25)]
+    essentialArray.push(randomElement)
+    console.log(essentialArray)
   }
   
 
   if (hasspecialCharacters){
-    megaArray.push(specialCharacters);
-    // return megaArray
+    megaArray.push(...specialCharacters);
+    console.log(megaArray)
+    randomElement = specialCharacters[Math.floor(Math.random() * 23)]
+    essentialArray.push(randomElement)
+    console.log(essentialArray)
+    
   }
   
  if (hasNumbers){
-    megaArray.push(numericCharacters);
-    // return megaArray
+  
+    megaArray.push(...numericCharacters);
+    console.log(megaArray)
+    randomElement = numericCharacters[Math.floor(Math.random() * 10)]
+    essentialArray.push(randomElement)
+    console.log(essentialArray)
   }
   console.log(megaArray)
   if (megaArray.length === 0){
     alert("please choose atleast one character type")
     getPasswordOptions();
   }
-
+getRandom(megaArray,essentialArray,passwordLength)
 }
 
 // Function for getting a random element from an array
-function getRandom(arr) {
 
+function getRandom(megaArray,essentialArray,passwordLength) {
+  console.log(megaArray , essentialArray, passwordLength)
+  
+  let passwordArray =[];
+  
+  console.log(megaArray)
+ let userPasswordLength = passwordLength - essentialArray.length
+ console.log(userPasswordLength)
+  for (let i=0; i < userPasswordLength ; i++){
+    let randomIndex = Math.floor(Math.random() * megaArray.length);
+    console.log(randomIndex)
+    passwordArray.push(megaArray[randomIndex])
+  } 
+  passwordArray.push(...essentialArray)
+  console.log(passwordArray)
 }
 
 // Function to generate password with user input
