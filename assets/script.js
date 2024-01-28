@@ -93,7 +93,8 @@ function getRandom(megaArray,essentialArray,passwordLength) {
     passwordArray.push(megaArray[randomIndex])
   } 
   passwordArray.push(...essentialArray)
-  console.log(passwordArray)
+  passwordArray1 = passwordArray.join("")
+  console.log(passwordArray1)
 }
 
 // Function to generate password with user input
