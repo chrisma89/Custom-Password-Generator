@@ -44,7 +44,7 @@ The code can be viewed at github: https://github.com/chrisma89/Chrisma-Password-
 The webpage could be used to generate a random password using criterias such as password length and character type choice. The github repository can be used to see the codes written for the generation of the password. 
 
 The screenshot of the webpage is below : ![webpagescreenshot](/webpagescreenshot.png)
-The screenshot with the password generated is : ![webpagescreenshot](/webpagescreenshotwithpassword.png)
+The screenshot with the password generated is : ![webpagescreenshot](./images/screenshot.png)
 
 ### Credits
 
